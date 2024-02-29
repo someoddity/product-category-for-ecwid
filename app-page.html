@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+<head>
+  <!-- Include Ecwid JS SDK -->
+  <script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.3.0/ecwid-app.js"></script>
+	<!-- Add values from the decrypted payload and initialize the app -->
+  <script>
+    // Initialize the application
+    EcwidApp.init({
+      app_id: "custom-app-94621574-1", // client_id of your application
+      autoloadedflag: true, 
+      autoheight: true
+    });
+
+    // Get store ID, language, and access token from decrypted payload JSON
+    var payload = <?php echo $result; ?>;
+    var storeId = payload.store_id;
+    var secret_token = payload.access_token;
+    var language = payload.lang;
+
+    if (payload.public_token !== undefined){
+      var publicToken = payload.public_token;
+    }
+    
+    if (payload.app_state !== undefined){
+      var appState = payload.app_state;
+    }
+
+    // load additional scripts, styles if necessary...
+  </script>
+
+  <!-- Include Ecwid CSS Framework -->
+  <link rel="stylesheet" href="https://d35z3p2poghz10.cloudfront.net/ecwid-sdk/css/1.3.19/ecwid-app-ui.css"/>  
+</head>
+
+<body class='normalized'>
+  <div>Show something</div>
+
+<!-- JS for CSS Framework components -->
+  <script src="https://d35z3p2poghz10.cloudfront.net/ecwid-sdk/css/1.3.19/ecwid-app-ui.min.js">
+  </script>
+</body>
+
+</html>
